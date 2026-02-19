@@ -1,0 +1,249 @@
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX;
+  my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animRing() {
+  rx += (mx - rx) * 0.13;
+  ry += (my - ry) * 0.13;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a, button, input').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '18px';
+    cursor.style.height = '18px';
+    ring.style.width = '52px';
+    ring.style.height = '52px';
+  });
+
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '10px';
+    cursor.style.height = '10px';
+    ring.style.width = '36px';
+    ring.style.height = '36px';
+  });
+});
+
+// Seamless cursor color switching based on pointer position within #waitlist.
+const navEl = document.querySelector('nav');
+const waitlistSection = document.getElementById('waitlist');
+
+function getRefY() {
+  const h = navEl ? navEl.getBoundingClientRect().height : 0;
+  return Math.min(window.innerHeight - 1, Math.max(0, h + 6));
+}
+
+function isInWaitlist() {
+  const waitlist = document.getElementById('waitlist');
+  if (!waitlist) return false;
+
+  const rect = waitlist.getBoundingClientRect();
+  const top = rect.top + window.scrollY;
+  const bottom = top + rect.height;
+
+  const docY = window.scrollY + (lastPointerY ?? (window.innerHeight * 0.5));
+  return docY >= top && docY < bottom;
+}
+
+let rafPending = false;
+let lastPointerY = null;
+let overOrangeEl = false;
+let overDarkEl   = false;
+
+function updateCursorColor() {
+  rafPending = false;
+  document.body.classList.toggle('cursor-black', (isInWaitlist() || overOrangeEl) && !overDarkEl);
+}
+
+function scheduleUpdate() {
+  if (rafPending) return;
+  rafPending = true;
+  requestAnimationFrame(updateCursorColor);
+}
+
+window.addEventListener('mousemove', e => {
+  lastPointerY = e.clientY;
+  scheduleUpdate();
+}, { passive: true });
+
+window.addEventListener('scroll', scheduleUpdate, { passive: true });
+window.addEventListener('resize', scheduleUpdate);
+scheduleUpdate();
+
+// Switch cursor to dark on any orange-background element
+document.querySelectorAll('.btn-primary, .nav-cta, .hero-visual img, .hero-app-icon').forEach(el => {
+  el.addEventListener('mouseenter', () => { overOrangeEl = true;  scheduleUpdate(); });
+  el.addEventListener('mouseleave', () => { overOrangeEl = false; scheduleUpdate(); });
+});
+
+// Override back to orange on dark elements inside orange areas
+document.querySelectorAll('.waitlist-form button').forEach(el => {
+  el.addEventListener('mouseenter', () => { overDarkEl = true;  scheduleUpdate(); });
+  el.addEventListener('mouseleave', () => { overDarkEl = false; scheduleUpdate(); });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      const question = i.querySelector('.faq-question');
+      if (question) question.setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Waitlist form
+document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  this.reset();
+  setTimeout(() => toast.classList.remove('show'), 4500);
+});
+
+// Nav border color on scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(245,97,52,0.12)' : 'rgba(234,235,220,0.06)';
+});
+
+void waitlistSection;
+void getRefY;
+
+// Seamless background video loop via two alternating players
+(function () {
+  const a = document.querySelector('.value-video-bg');
+  if (!a) return;
+
+  // Clone to create the second player, hidden by default
+  const b = a.cloneNode(true);
+  b.style.opacity = '0';
+  a.parentNode.insertBefore(b, a.nextSibling);
+  b.load();
+
+  const FADE_MS  = 600;   // crossfade duration
+  const TRIGGER_S = 0.8;  // seconds before end to start the crossfade
+  let cur = a, nxt = b, busy = false;
+
+  setInterval(() => {
+    if (busy || !cur.duration || !isFinite(cur.duration)) return;
+    if (cur.currentTime < cur.duration - TRIGGER_S) return;
+
+    busy = true;
+    nxt.currentTime = 0;
+    nxt.play().catch(() => {});
+    nxt.style.transition = `opacity ${FADE_MS}ms ease`;
+    nxt.style.opacity    = '0.18';
+    cur.style.transition = `opacity ${FADE_MS}ms ease`;
+    cur.style.opacity    = '0';
+
+    setTimeout(() => {
+      cur.pause();
+      cur.style.transition = '';
+      [cur, nxt] = [nxt, cur];   // swap roles
+      nxt.style.transition = '';
+      nxt.style.opacity    = '0';
+      busy = false;
+    }, FADE_MS + 100);
+  }, 100);
+}());
+
+// Sticky phone: scroll-budget step switcher
+// #how is a tall pin container (100vh + 600px); .how-pin is sticky at top: 0.
+// Steps advance as the user scrolls through the 600px budget.
+(function () {
+  const section   = document.getElementById('how');
+  if (!section) return;
+
+  const stepItems = Array.from(section.querySelectorAll('.step-scroll-item'));
+  const screens   = Array.from(section.querySelectorAll('.phone-screen[data-screen]'));
+  const dots      = Array.from(document.querySelectorAll('.how-dot'));
+  if (!stepItems.length || !screens.length) return;
+
+  let activeIdx = -1;
+
+  function activate(idx) {
+    if (idx === activeIdx) return;
+    activeIdx = idx;
+
+    stepItems.forEach((el, i) => el.classList.toggle('step-active', i === idx));
+
+    screens.forEach(s => s.classList.remove('phone-screen--active'));
+    const target = section.querySelector(`.phone-screen[data-screen="${idx + 1}"]`);
+    if (target) target.classList.add('phone-screen--active');
+
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  activate(0);
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 760) return;
+    const rect       = section.getBoundingClientRect();
+    const scrollable = section.offsetHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    const scrolled   = Math.max(0, -rect.top);
+    const progress   = Math.min(1, scrolled / scrollable);
+    const idx        = Math.min(stepItems.length - 1, Math.floor(progress * stepItems.length));
+    activate(idx);
+  }, { passive: true });
+}());
+
+// Value counters: count up when section scrolls into view
+const counterEls = document.querySelectorAll('.value-counter');
+if (counterEls.length) {
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1600;
+      const start = performance.now();
+
+      function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+        const val = Math.round(eased * target);
+        el.textContent = '~€\u00a0' + val.toLocaleString('it-IT');
+        if (t < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  counterEls.forEach(el => counterObs.observe(el));
+}

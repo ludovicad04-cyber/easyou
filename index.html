@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>easyou - Semplice, per scelta.</title>
+  <meta name="description" content="L'app made in Italy per chi vuole iniziare a investire con chiarezza.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <div id="toast" role="status" aria-live="polite">✓ Sei in lista! Ti avviseremo presto.</div>
+
+  <header>
+    <nav>
+      <a class="nav-logo" href="#hero" aria-label="easyou homepage">
+        <img src="brand identity/easyou_orange.svg" alt="easyou logo" loading="eager">
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#how">Come funziona</a></li>
+          <li><a href="#etf">ETF</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#waitlist" class="nav-cta">Inizia un percorso</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <img class="hero-app-icon reveal" src="brand identity/App_Icon_1.png" alt="easyou app icon">
+        <p class="hero-claim reveal">Semplice, per scelta.</p>
+        <h1 class="reveal">Nessuno nasce investitore.</h1>
+        <p class="hero-description reveal">L'app made in Italy per chi si sente distante dal mondo della finanza, ma vuole iniziare a investire. Niente trading frenetico. Solo chiarezza.</p>
+        <div class="hero-actions reveal">
+          <a href="#waitlist" class="btn-primary">Inizia un percorso</a>
+          <a href="#how" class="btn-ghost">Scopri come funziona</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <img src="brand identity/Bento_box_app.png" alt="Mano che tiene iPhone con l'app easyou">
+      </div>
+    </section>
+
+    <section id="value-marquee-section" aria-label="L'ABC della finanza personale">
+      <div class="value-marquee">
+        <div class="value-marquee-track">
+          <div class="value-marquee-group">
+            <span>L’ABC della finanza personale</span>
+            <span aria-hidden="true">L’ABC della finanza personale</span>
+            <span aria-hidden="true">L’ABC della finanza personale</span>
+          </div>
+          <div class="value-marquee-group" aria-hidden="true">
+            <span>L’ABC della finanza personale</span>
+            <span>L’ABC della finanza personale</span>
+            <span>L’ABC della finanza personale</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="value">
+      <video class="value-video-bg" autoplay muted playsinline aria-hidden="true">
+        <source src="brand identity/5s auto 720p Video 01.mp4" type="video/mp4">
+      </video>
+      <div class="section-label reveal">Perché easyou</div>
+      <h2 class="reveal">Dal denaro fermo al denaro che lavora</h2>
+      <div class="value-grid">
+        <article class="value-card reveal">
+          <p class="value-card-tag">I soldi fermi sul conto corrente perdono il valore che hai accumulato</p>
+          <div class="value-stat">
+            <span class="value-trend-icon loss-color">↓</span>
+            <p class="value-counter loss-color" data-target="8200">~€ 8.200</p>
+            <span class="value-stat-label">tra 10 anni</span>
+          </div>
+          <span class="value-delta loss-delta">10.000€ fermi oggi &nbsp;·&nbsp; −18%</span>
+          <div class="jars-wrapper">
+            <div class="jars-labels" aria-hidden="true">
+              <span>Oggi</span>
+              <span>Tra 10 anni</span>
+            </div>
+            <img class="value-jars" src="brand identity/extracted/jars_loss.png" alt="Barattoli: oggi e in 10 anni con perdita di valore del denaro fermo">
+          </div>
+          <p class="value-disclaimer">Esempio illustrativo su 10 anni, basato su un’ipotesi di inflazione annua 1–3% (ordine di grandezza coerente con i livelli osservati nel 2023- 2025). L’inflazione effettiva può essere più alta o più bassa: di conseguenza possono variare prezzi e potere d’acquisto. La simulazione è solo informativa: non è una previsione né una raccomandazione d’investimento e non considera imposte, costi o spese.</p>
+        </article>
+
+        <div class="value-vs" aria-hidden="true">VS</div>
+
+        <article class="value-card highlight reveal">
+          <p class="value-card-tag">I soldi investiti guadagnano valore sul tuo futuro</p>
+          <div class="value-stat">
+            <span class="value-trend-icon gain-color">↑</span>
+            <p class="value-counter gain-color" data-target="17078">~€ 17.078</p>
+            <span class="value-stat-label">tra 10 anni</span>
+          </div>
+          <span class="value-delta gain-delta">10.000€ investiti oggi &nbsp;·&nbsp; +70%</span>
+          <div class="jars-wrapper">
+            <div class="jars-labels" aria-hidden="true">
+              <span>Oggi</span>
+              <span>Tra 10 anni</span>
+            </div>
+            <img class="value-jars" src="brand identity/extracted/jars_gain.png" alt="Barattoli: oggi e in 10 anni con crescita del denaro investito">
+          </div>
+          <p class="value-disclaimer">Simulazione dell’effetto della capitalizzazione composta. Il grafico illustra la crescita di un capitale ipotetico basata su un rendimento annuo costante del 5,5%. Questo valore riflette la performance media annua registrata dall’indice MSCI World (Net EUR) nel decennio dicembre 2015 – dicembre 2025. La proiezione ipotizza un investimento unico mantenuto per 10 anni. Nota: Questo esempio ha scopo puramente illustrativo e non garantisce rendimenti futuri. Il calcolo non include costi di gestione, commissioni o tassazione, che ridurrebbero il risultato finale.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="how-pin">
+        <div class="section-label reveal">Come funziona</div>
+        <h2 class="reveal">Tre passi. Il resto lo facciamo noi.</h2>
+        <div class="how-steps-dots" aria-hidden="true">
+          <span class="how-dot"></span>
+          <span class="how-dot"></span>
+          <span class="how-dot"></span>
+        </div>
+        <div class="steps-sticky-wrapper">
+
+          <!-- Left: steps shown one at a time via JS -->
+          <div class="steps-scroll">
+            <div class="step-scroll-item" data-step="1">
+              <div class="step-scroll-copy">
+                <p class="step-num">01</p>
+                <h3>Imposta un percorso</h3>
+                <p>Parlaci di te. Rispondi ad alcune domande sull'orizzonte temporale e il tuo rapporto con il rischio. Scopri il percorso di investimento più adatto a te.</p>
+              </div>
+            </div>
+            <div class="step-scroll-item" data-step="2">
+              <div class="step-scroll-copy">
+                <p class="step-num">02</p>
+                <h3>Modellalo su di te</h3>
+                <p>Aggiungi i temi che ti appassionano: tecnologia, sostenibilità, mercati emergenti. Vivi l'investimento ogni giorno come qualcosa di tuo.</p>
+              </div>
+            </div>
+            <div class="step-scroll-item" data-step="3">
+              <div class="step-scroll-copy">
+                <p class="step-num">03</p>
+                <h3>Versa il denaro</h3>
+                <p>Aggiungi fondi come preferisci: importi grandi o piccoli, versamenti ricorrenti o singoli. Collega la tua banca e fai un bonifico — una volta o ogni mese. Trova il tuo ritmo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: phone mockup -->
+          <div class="steps-sticky-phone">
+            <div class="phone-mockup">
+              <div class="phone-screen phone-screen--active" data-screen="1">
+                <span class="phone-screen-placeholder">Screenshot<br>in arrivo</span>
+              </div>
+              <div class="phone-screen" data-screen="2">
+                <span class="phone-screen-placeholder">Screenshot<br>in arrivo</span>
+              </div>
+              <div class="phone-screen" data-screen="3">
+                <span class="phone-screen-placeholder">Screenshot<br>in arrivo</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="etf">
+      <div class="etf-layout">
+        <div class="reveal">
+          <div class="section-label">Come investiamo</div>
+          <h2>Easyou lavora con gli <span class="text-orange">investimenti passivi</span>.</h2>
+          <p>In parole povere i tuoi investimenti saranno fatti di ETF (Exhange Traded Fund).</p>
+          <p><span class="text-orange">Un ETF è un pacchetto all-inclusive</span> che contiene centinaia o migliaia di titoli e che replica l'andamento di un intero mercato – per esempio le 500 aziende più grandi degli USA.</p>
+          <p>In parole ancora più povere: compri l'intero mercato con un solo clic, senza passare ore a studiare quali azioni comprare o vendere.</p>
+        </div>
+        <div class="etf-cards">
+          <article class="etf-card reveal">
+            <h3 class="text-orange">Distribuiscono il rischio</h3>
+            <p>Invece di scommettere su una sola azienda, con un ETF investi su un intero mercato. Se un'azienda va male, l'impatto è minimo perché compensato dalle altre centinaia nel fondo. Non metti tutte le uova in un solo paniere.</p>
+          </article>
+          <article class="etf-card reveal">
+            <h3 class="text-orange">Facili da gestire</h3>
+            <p>Seguono un indice, quindi si prestano a chi vuole investire senza stress. Non devi passare ore a studiare: compri l'intero mercato con un solo clic.</p>
+          </article>
+          <article class="etf-card reveal">
+            <h3 class="text-orange">Costano poco</h3>
+            <p>Non sono gestiti attivamente, quindi le commissioni sono più basse. La loro struttura elimina molti costi intermedi rispetto ai fondi bancari tradizionali.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist">
+      <div class="waitlist-bg" aria-hidden="true"></div>
+      <div class="section-label reveal">Lista d'attesa</div>
+      <h2 class="reveal">Iscriviti alla lista d'attesa</h2>
+      <form class="waitlist-form reveal" id="waitlistForm">
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" placeholder="La tua email" required>
+        <button type="submit">Inizia un percorso</button>
+      </form>
+      <p class="waitlist-sub reveal">…mentre aspetti, fai girare la voce</p>
+      <p class="waitlist-note reveal">Per i primi 1.000 utenti che investiranno con noi, ci sarà un premio.</p>
+      <p class="waitlist-note reveal">Condividi l'invito con i tuoi amici.<br>Più amici si iscrivono, prima avrai accesso.</p>
+    </section>
+
+    <section id="faq">
+      <div class="faq-layout">
+        <div class="faq-sticky reveal">
+          <div class="section-label">FAQ</div>
+          <h2>Domande frequenti</h2>
+          <p>Le risposte essenziali per iniziare con chiarezza.</p>
+        </div>
+        <div class="faq-list reveal">
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Cos'è un ETF?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">Un ETF (Exchange Traded Fund) è un fondo che contiene centinaia o migliaia di titoli diversi e si compra in borsa come una singola azione. In pratica, è un pacchetto all-inclusive che replica l'andamento di un intero mercato — per esempio le 500 aziende più grandi degli USA.</div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Perché gli ETF riducono il rischio?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"> Invece di scommettere su una sola azienda (che potrebbe fallire), con un ETF investi su un intero settore o paese. Se un'azienda nel "paniere" va male, l'impatto sul tuo investimento è minimo perché è compensato dalle altre centinaia che compongono il fondo.
+            In breve: Non metti tutte le uova in un solo paniere.</div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Perché sono semplici?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"> Non devi passare ore a studiare quali azioni comprare o vendere. Ti basta scegliere un indice (es. "il mercato mondiale") e l'ETF farà tutto il lavoro per te, seguendo automaticamente l'andamento di quel mercato. In breve: Compri l'intero mercato con un solo clic.</div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Perché costano meno dei fondi tradizionali?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">Perché la loro struttura tecnica elimina molti costi intermedi (come le commissioni pagate alle reti di vendita). Anche quando c'è un gestore umano dietro (ETF attivi), la competizione e l'efficienza della borsa mantengono i costi mediamente molto più bassi rispetto ai fondi bancari.</div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Quanto mi serve per iniziare?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">Con Easyou puoi iniziare anche con piccole somme. Non esiste un minimo impossibile: l'idea è che investire sia accessibile a tutti, non solo a chi ha grandi capitali. Anche un piccolo versamento mensile può fare la differenza nel lungo periodo.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img class="footer-logo" src="brand identity/easyou_light.svg" alt="easyou logo">
+    <p class="footer-copy">© 2026 easyou. Made in Italy. Investire comporta rischi.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Termini</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

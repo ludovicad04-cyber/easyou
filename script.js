@@ -1,3 +1,6 @@
+// Disabilita il ripristino automatico dello scroll al refresh
+history.scrollRestoration = 'manual';
+
 // Custom cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');

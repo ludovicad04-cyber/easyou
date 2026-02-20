@@ -786,13 +786,33 @@ body.cursor-black #cursor-ring { border-color: rgba(0, 0, 0, 0.45); }
 }
 
 @media (max-width: 760px) {
+  /* ── Navigation ── */
   nav { padding: var(--space-3); }
   .nav-links { display: none; }
-  section { padding: calc(var(--space-8) + 1rem) var(--space-3) var(--space-7); }
-  #cursor,
-  #cursor-ring { display: none; }
+  .nav-cta { display: none; }
+  #cursor, #cursor-ring { display: none; }
   * { cursor: auto; }
 
+  /* ── Section spacing ── */
+  section { padding: calc(var(--space-8) + 1rem) var(--space-3) var(--space-6); }
+
+  /* ── Hero ── */
+  #hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    min-height: auto;
+    padding-top: calc(var(--space-8) + 2rem);
+    padding-bottom: var(--space-7);
+  }
+  .hero-app-icon { margin-left: auto; margin-right: auto; }
+  .hero-description { max-width: none; }
+  .hero-actions { justify-content: center; }
+  .hero-visual { display: none; }
+
+  /* ── Value cards ── */
+  .value-card { padding: var(--space-4) var(--space-3); }
+
+  /* ── Come funziona ── */
   #how {
     height: auto;
     padding: calc(var(--space-8) + 1rem) var(--space-3) var(--space-7);
@@ -813,7 +833,23 @@ body.cursor-black #cursor-ring { border-color: rgba(0, 0, 0, 0.45); }
     opacity: 1;
     pointer-events: auto;
     display: block;
-    padding: var(--space-5) 0;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.1);
   }
+  .step-scroll-item:last-child { border-bottom: none; }
   .step-scroll-copy { max-width: none; }
+
+  /* ── Waitlist ── */
+  .waitlist-position-num { font-size: clamp(3.5rem, 18vw, 5rem); }
+  .waitlist-form { flex-direction: column; align-items: stretch; }
+  .waitlist-form input,
+  .waitlist-form button { width: 100%; }
+  .waitlist-sub { font-size: clamp(1.3rem, 6vw, 2rem); }
+
+  /* ── FAQ ── */
+  .faq-sticky { position: relative; top: auto; margin-bottom: var(--space-4); }
+  .faq-item.open .faq-answer { max-height: 600px; }
+
+  /* ── Footer ── */
+  footer { padding: var(--space-5) var(--space-3); }
 }

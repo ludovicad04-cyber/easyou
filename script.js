@@ -227,6 +227,9 @@ void getRefY;
 // Value counters: count up when section scrolls into view
 const counterEls = document.querySelectorAll('.value-counter');
 if (counterEls.length) {
+  // Inizializza a zero: l'animazione parte solo quando l'utente arriva alla sezione
+  counterEls.forEach(el => { el.textContent = '~€\u00a00'; });
+
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;

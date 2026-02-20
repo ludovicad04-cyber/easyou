@@ -586,6 +586,26 @@ h1 {
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
+.waitlist-position {
+  margin: 0 0 var(--space-6);
+}
+
+.waitlist-position-num {
+  font-family: "Qurova", "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.waitlist-position-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.5rem 0 0;
+}
+
 .waitlist-form {
   display: flex;
   justify-content: center;

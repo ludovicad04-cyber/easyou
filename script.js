@@ -127,10 +127,44 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
+// Waitlist counter
+// ─── Aggiorna WAITLIST_BASE_COUNT con il numero reale quando hai il database ───
+const WAITLIST_BASE_COUNT = 31;          // iscritti al lancio
+const WAITLIST_START_DATE = new Date('2026-02-20');
+const WAITLIST_DAILY_GROWTH = 9;         // stima crescita giornaliera
+
+function getWaitlistCount() {
+  const days = Math.max(0, Math.floor((Date.now() - WAITLIST_START_DATE) / 86400000));
+  return WAITLIST_BASE_COUNT + days * WAITLIST_DAILY_GROWTH;
+}
+
+const waitlistCountEl = document.getElementById('waitlistCount');
+if (waitlistCountEl) {
+  const wObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const target = getWaitlistCount();
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        waitlistCountEl.textContent = Math.round(eased * target).toLocaleString('it-IT');
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      wObs.unobserve(waitlistCountEl);
+    });
+  }, { threshold: 0.5 });
+  wObs.observe(waitlistCountEl);
+}
+
 // Waitlist form
 document.getElementById('waitlistForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  const position = getWaitlistCount() + 1;
   const toast = document.getElementById('toast');
+  toast.textContent = `✓ Sei il #${position.toLocaleString('it-IT')} della lista!`;
   toast.classList.add('show');
   this.reset();
   setTimeout(() => toast.classList.remove('show'), 4500);

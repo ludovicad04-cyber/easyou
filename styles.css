@@ -787,9 +787,11 @@ body.cursor-black #cursor-ring { border-color: rgba(0, 0, 0, 0.45); }
 
 @media (max-width: 760px) {
   /* ── Navigation ── */
-  nav { padding: var(--space-3); }
-  .nav-links { display: none; }
+  nav { padding: var(--space-3); justify-content: center; }
+  .nav-logo { display: none; }
   .nav-cta { display: none; }
+  .nav-right { gap: var(--space-3); }
+  .nav-links { display: flex; gap: var(--space-4); }
   #cursor, #cursor-ring { display: none; }
   * { cursor: auto; }
 

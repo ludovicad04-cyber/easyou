@@ -173,7 +173,7 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e) {
 // Nav border color on scroll
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
-  nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(245,97,52,0.12)' : 'rgba(234,235,220,0.06)';
+  nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(245,97,52,0.2)' : 'rgba(255,255,255,0.06)';
 });
 
 void waitlistSection;

@@ -575,13 +575,14 @@ h1 {
 .steps-sticky-phone {
   pointer-events: none;
   position: relative;
+  overflow: hidden;
 }
 
 /* ── Phone mockup ── */
 .phone-mockup {
   pointer-events: auto;
   /* Height-driven: fits in remaining viewport space; width follows aspect-ratio */
-  height: min(calc(100vh - 22rem), 480px);
+  height: min(calc(100vh - 18rem), 620px);
   width: auto;
   aspect-ratio: 9 / 19.5;
   background: #1c1c1e;
@@ -649,6 +650,7 @@ h1 {
   align-items: center;
   justify-content: center;
   background: none;
+  overflow: hidden;
 }
 
 .steps-sticky-phone .phone-screen--active {
@@ -656,11 +658,16 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen img {
-  height: 100%;
+  /*
+   * The SVG canvas is 1440×810 landscape. The phone sits centered inside it
+   * and occupies 667/810 = 82.3% of the SVG height and 327/1440 = 22.7% of width.
+   * Scale to 122% so the phone itself fills 100% of the column height.
+   * flex centering handles horizontal alignment (phone is at SVG midpoint).
+   */
+  height: 122%;
   width: auto;
-  max-width: 100%;
+  flex-shrink: 0;
   display: block;
-  object-fit: contain;
 }
 
 .text-orange { color: var(--color-primary); }

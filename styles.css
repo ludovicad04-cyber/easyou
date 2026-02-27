@@ -514,7 +514,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
+  align-items: stretch;
   width: 100%;
   margin: var(--space-4) 0 0;
 }
@@ -574,7 +574,7 @@ h1 {
 /* Phone column */
 .steps-sticky-phone {
   pointer-events: none;
-  display: grid;
+  position: relative;
 }
 
 /* ── Phone mockup ── */
@@ -644,12 +644,10 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen {
-  grid-area: 1 / 1;
+  /* position: absolute; inset: 0 from base .phone-screen class → fills container */
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.45s ease;
   background: none;
 }
 
@@ -658,10 +656,11 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen img {
-  height: calc(100vh - 18rem);
+  height: 100%;
   width: auto;
   max-width: 100%;
   display: block;
+  object-fit: contain;
 }
 
 .text-orange { color: var(--color-primary); }

@@ -475,6 +475,14 @@ h1 {
   position: relative;
   /* Pin container: viewport height + scroll budget (200px per step × 3 steps) */
   height: calc(100vh + 600px);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+}
+
+#how h2,
+#how h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
 }
 
 /* Sticky content: always fills the viewport while the pin container scrolls */
@@ -562,7 +570,7 @@ h1 {
   font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0 0 var(--space-4);
   font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   color: #fff;
 }
@@ -571,7 +579,7 @@ h1 {
   font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;
   font-size: clamp(1rem, 1.5vw, 1.15rem);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.75);
 }

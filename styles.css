@@ -269,7 +269,7 @@ h1 {
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.35;
   color: #fff;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .value-card-body .value-jars {
@@ -283,14 +283,14 @@ h1 {
 .value-stat-primary {
   margin: 0 0 0.25rem;
   font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-  font-weight: 700;
+  font-weight: 400;
   color: #fff;
 }
 
 .value-stat-result {
   margin: 0;
   font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 

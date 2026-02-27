@@ -91,7 +91,7 @@ section {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url("brand identity/Mountain_Scene 2.png") center/cover no-repeat;
+  background: url("brand identity/background.png") center/cover no-repeat;
   opacity: 0.22;
   z-index: 0;
 }
@@ -106,13 +106,10 @@ section {
 }
 
 .hero-brand {
-  font-family: "Qurova", sans-serif;
-  font-size: clamp(5rem, 18vw, 13rem);
-  font-weight: 800;
-  color: var(--color-primary);
-  margin: 0;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  width: min(80%, 600px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .hero-claim {
@@ -815,7 +812,7 @@ body.cursor-black #cursor-ring { border-color: rgba(0, 0, 0, 0.45); }
 
   /* ── Hero ── */
   #hero { min-height: 100svh; }
-  .hero-brand { font-size: clamp(4rem, 22vw, 6rem); }
+  .hero-brand { width: min(72%, 300px); }
 
   /* ── Value cards ── */
   .value-card { padding: var(--space-4) var(--space-3); }

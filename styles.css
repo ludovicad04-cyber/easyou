@@ -698,6 +698,12 @@ h1 {
 .text-orange { color: var(--color-primary); }
 
 #etf { background: #fff; }
+
+.etf-left,
+.etf-left p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+}
 .etf-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

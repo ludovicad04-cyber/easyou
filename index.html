@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <div id="cursor"></div>
@@ -92,50 +92,57 @@
 
     <section id="how">
       <div class="how-pin">
-        <h2 class="reveal" style="color:#fff;">Tre passi.<br><span class="text-orange">Il resto lo facciamo noi.</span></h2>
-        <div class="how-steps-dots" aria-hidden="true">
-          <span class="how-dot"></span>
-          <span class="how-dot"></span>
-          <span class="how-dot"></span>
-        </div>
         <div class="steps-sticky-wrapper">
 
-          <!-- Left: steps shown one at a time via JS -->
-          <div class="steps-scroll">
-            <div class="step-scroll-item" data-step="1">
-              <div class="step-scroll-copy">
-                <h3>Imposta<br>un percorso</h3>
-                <p>Rispondi alle nostre domande e<br>scopri il percorso di<br>investimento che ti si addice. <br><span class="text-orange">Parlaci di te.</span></p>
+          <!-- LEFT: phone — large, overflows top/bottom, clipped by column -->
+          <div class="steps-sticky-phone">
+            <div class="phone-mockup">
+              <div class="phone-screen phone-screen--active" data-screen="1">
+                <img src="brand identity/km4.svg" alt="App screen 1">
               </div>
-            </div>
-            <div class="step-scroll-item" data-step="2">
-              <div class="step-scroll-copy">
-                <h3>Modellalo<br>su di te</h3>
-                <p>Easyou ti assegna un portafoglio<br>di partenza: aggiungi fino a<br>3 temi che ti appassionano. <br><span class="text-orange">Vivi l'investimento ogni giorno.</span></p>
+              <div class="phone-screen" data-screen="2">
+                <img src="brand identity/km4.svg" alt="App screen 2">
               </div>
-            </div>
-            <div class="step-scroll-item" data-step="3">
-              <div class="step-scroll-copy">
-                <h3>Versa il<br>denaro</h3>
-                <p>Aggiungi i fondi come preferisci:<br>importi grandi o piccoli, versamenti<br>ricorrenti o singoli. <br><span class="text-orange">Trova il tuo ritmo.</span></p>
+              <div class="phone-screen" data-screen="3">
+                <img src="brand identity/km4.svg" alt="App screen 3">
               </div>
             </div>
           </div>
 
-          <!-- Right: schermate app -->
-        <div class="steps-sticky-phone">
-          <div class="phone-mockup">
-            <div class="phone-screen phone-screen--active" data-screen="1">
-              <img src="brand identity/km4.svg" alt="App screen 1">
+          <!-- RIGHT: title + dots + step content -->
+          <div class="steps-right">
+            <div class="steps-right-header">
+              <h2 class="reveal" style="color:#fff;">Tre passi.<br><span class="text-orange">Il resto lo facciamo noi.</span></h2>
+              <div class="how-steps-dots" aria-hidden="true">
+                <span class="how-dot"></span>
+                <span class="how-dot"></span>
+                <span class="how-dot"></span>
+              </div>
             </div>
-            <div class="phone-screen" data-screen="2">
-              <img src="brand identity/km4.svg" alt="App screen 2">
-            </div>
-            <div class="phone-screen" data-screen="3">
-              <img src="brand identity/km4.svg" alt="App screen 3">
+            <div class="steps-scroll">
+              <div class="step-scroll-item" data-step="1">
+                <div class="step-scroll-copy">
+                  <h3>Imposta<br>un percorso</h3>
+                  <p>Rispondi alle nostre domande e<br>scopri il percorso di<br>investimento che ti si addice. <br><span class="text-orange">Parlaci di te.</span></p>
+                </div>
+              </div>
+              <div class="step-scroll-item" data-step="2">
+                <div class="step-scroll-copy">
+                  <h3>Modellalo<br>su di te</h3>
+                  <p>Easyou ti assegna un portafoglio<br>di partenza: aggiungi fino a<br>3 temi che ti appassionano. <br><span class="text-orange">Vivi l'investimento ogni giorno.</span></p>
+                </div>
+              </div>
+              <div class="step-scroll-item" data-step="3">
+                <div class="step-scroll-copy">
+                  <h3>Versa il<br>denaro</h3>
+                  <p>Aggiungi i fondi come preferisci:<br>importi grandi o piccoli, versamenti<br>ricorrenti o singoli. <br><span class="text-orange">Trova il tuo ritmo.</span></p>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
+      </div>
     </section>
 
     <section id="etf">

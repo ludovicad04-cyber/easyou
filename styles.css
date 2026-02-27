@@ -53,7 +53,7 @@ nav {
   backdrop-filter: blur(10px);
 }
 
-.nav-logo img { width: 130px; height: auto; display: block; }
+.nav-logo img { width: 44px; height: 44px; display: block; object-fit: contain; }
 .nav-links a { color: rgba(255, 255, 255, 0.8); }
 .nav-right { display: flex; align-items: center; gap: var(--space-4); }
 .nav-links {
@@ -78,42 +78,57 @@ section {
 
 #hero {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  display: flex;
   align-items: center;
-  gap: var(--space-6);
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  background: #111;
+  background: #1e1e1e;
   color: #fff;
+  text-align: center;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
   background: url("brand identity/Mountain_Scene 2.png") center/cover no-repeat;
-  opacity: 0.07;
-  z-index: -2;
+  opacity: 0.22;
+  z-index: 0;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(253, 189, 132, 0.28), transparent 48%);
-  z-index: -1;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--space-5);
 }
 
-.hero-app-icon {
-  width: 86px;
-  border-radius: 18px;
-  display: block;
-  margin-bottom: var(--space-4);
+.hero-brand {
+  font-family: "Qurova", sans-serif;
+  font-size: clamp(5rem, 18vw, 13rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
 }
 
 .hero-claim {
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-family: "Qurova", sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2.8rem);
+  font-weight: 600;
   color: var(--color-primary);
-  margin: 0 0 var(--space-3);
+  margin: var(--space-3) 0 var(--space-5);
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline {
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 var(--space-6);
 }
 
 h1 {
@@ -122,17 +137,11 @@ h1 {
   line-height: 1.06;
 }
 
-.hero-description {
-  margin: var(--space-4) 0;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  max-width: 36ch;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+  justify-content: center;
 }
 
 .btn-primary,
@@ -805,17 +814,8 @@ body.cursor-black #cursor-ring { border-color: rgba(0, 0, 0, 0.45); }
   section { padding: calc(var(--space-8) + 1rem) var(--space-3) var(--space-6); }
 
   /* ── Hero ── */
-  #hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    min-height: auto;
-    padding-top: calc(var(--space-8) + 2rem);
-    padding-bottom: var(--space-7);
-  }
-  .hero-app-icon { margin-left: auto; margin-right: auto; }
-  .hero-description { max-width: none; }
-  .hero-actions { justify-content: center; }
-  .hero-visual { display: none; }
+  #hero { min-height: 100svh; }
+  .hero-brand { font-size: clamp(4rem, 22vw, 6rem); }
 
   /* ── Value cards ── */
   .value-card { padding: var(--space-4) var(--space-3); }

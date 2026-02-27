@@ -243,6 +243,7 @@ h1 {
 }
 
 .value-card-label {
+  font-family: "Qurova", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: rgba(255, 246, 239, 0.45);
@@ -263,6 +264,7 @@ h1 {
 }
 
 .value-card-text h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.35;

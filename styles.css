@@ -571,11 +571,10 @@ h1 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Phone column — whole section is already sticky, no need to re-sticky */
+/* Phone column */
 .steps-sticky-phone {
-  position: relative;
-  align-self: stretch;
   pointer-events: none;
+  display: grid;
 }
 
 /* ── Phone mockup ── */
@@ -645,8 +644,7 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -660,12 +658,9 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+  height: calc(100vh - 18rem);
+  width: auto;
+  max-width: 100%;
   display: block;
 }
 

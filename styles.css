@@ -333,8 +333,8 @@ h1 {
 }
 
 .value-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #3a3a3a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   padding: var(--space-6);
   display: flex;

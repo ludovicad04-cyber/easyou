@@ -699,25 +699,54 @@ h1 {
 
 #etf { background: #fff; }
 
-.etf-left,
-.etf-left h2,
-.etf-left p {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
-}
+/* Two-column layout: left text, right cards */
 .etf-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
 }
-.etf-cards { display: grid; gap: var(--space-3); }
+
+/* Left column: title at top, paragraphs with generous spacing */
+.etf-left {
+  display: flex;
+  flex-direction: column;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+}
+
+.etf-left h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
+  margin: 0 0 var(--space-7);
+}
+
+.etf-left p {
+  margin: 0 0 var(--space-7);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+}
+
+.etf-left p:last-child { margin-bottom: 0; }
+
+/* Right column: 3 cards stacked vertically */
+.etf-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
 .etf-card {
   background: #fffaf6;
   border: 1px solid rgba(177, 85, 68, 0.2);
   border-radius: 16px;
-  padding: var(--space-4);
+  padding: var(--space-4) var(--space-5);
 }
-.etf-card h3 { margin: 0 0 var(--space-2); }
+
+.etf-card h3 {
+  margin: 0 0 var(--space-2);
+}
+
 .etf-card p { margin: 0; }
 
 #waitlist {

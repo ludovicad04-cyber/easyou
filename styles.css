@@ -266,7 +266,7 @@ h1 {
 .value-card-text h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 80px);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   line-height: 1.2;
   color: #fff;
   font-weight: 400;

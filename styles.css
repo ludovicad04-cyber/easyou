@@ -243,28 +243,27 @@ h1 {
 
 .value-card-body {
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+  margin: var(--space-5) 0;
 }
 
 .value-card-text {
   flex: 1;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .value-card-text h3 {
-  margin: 0 0 var(--space-5);
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  margin: 0;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.35;
   color: #fff;
   font-weight: 700;
 }
 
 .value-card-body .value-jars {
-  width: 38%;
+  width: 36%;
   flex-shrink: 0;
   display: block;
 }
@@ -272,17 +271,21 @@ h1 {
 .value-stats { margin-top: auto; }
 
 .value-stat-primary {
-  margin: 0 0 0.2rem;
-  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   font-weight: 700;
   color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .value-stat-result {
   margin: 0;
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 800;
   letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .value-marquee {
@@ -328,7 +331,10 @@ h1 {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
-  padding: var(--space-5);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
 }
 
 .value-card.highlight {

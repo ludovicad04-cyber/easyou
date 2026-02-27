@@ -343,9 +343,7 @@ h1 {
 }
 
 .value-card.highlight {
-  background: linear-gradient(135deg, rgba(253, 189, 132, 0.22), rgba(244, 96, 52, 0.18));
-  border-color: rgba(253, 189, 132, 0.3);
-  box-shadow: 0 0 60px rgba(244, 96, 52, 0.18);
+  background: #3a3a3a;
 }
 
 .value-card h3 {

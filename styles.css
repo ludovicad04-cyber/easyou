@@ -575,14 +575,16 @@ h1 {
 .steps-sticky-phone {
   pointer-events: none;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── Phone mockup ── */
 .phone-mockup {
   pointer-events: auto;
-  /* Height-driven: fits in remaining viewport space; width follows aspect-ratio */
-  height: min(calc(100vh - 18rem), 620px);
+  /* Fill most of the available column height */
+  height: min(calc(100% - 2rem), calc(100vh - 12rem));
   width: auto;
   aspect-ratio: 9 / 19.5;
   background: #1c1c1e;
@@ -645,12 +647,8 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen {
-  /* position: absolute; inset: 0 from base .phone-screen class → fills container */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* position: absolute; inset: 0 from base .phone-screen class → fills the phone-mockup */
   background: none;
-  overflow: hidden;
 }
 
 .steps-sticky-phone .phone-screen--active {
@@ -658,15 +656,10 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen img {
-  /*
-   * The SVG canvas is 1440×810 landscape. The phone sits centered inside it
-   * and occupies 667/810 = 82.3% of the SVG height and 327/1440 = 22.7% of width.
-   * Scale to 122% so the phone itself fills 100% of the column height.
-   * flex centering handles horizontal alignment (phone is at SVG midpoint).
-   */
-  height: 122%;
-  width: auto;
-  flex-shrink: 0;
+  /* km4.svg is 375×812 portrait — matches the phone screen perfectly */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 

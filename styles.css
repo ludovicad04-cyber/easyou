@@ -676,7 +676,7 @@ h1 {
    * fills 100% of the column height. Centered horizontally (phone is at x=50%).
    * Left/right canvas margins are clipped by overflow:hidden on the column.
    */
-  height: 122%;
+  height: 100%;
   width: auto;
   flex-shrink: 0;
   display: block;

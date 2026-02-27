@@ -190,11 +190,11 @@ h1 {
 }
 
 #value {
-  background: var(--color-surface);
+  background: url("brand identity/background.png") center/cover no-repeat;
   color: var(--color-cream);
   position: relative;
 }
-#value > *:not(.value-video-bg) { position: relative; z-index: 1; }
+#value > * { position: relative; z-index: 1; }
 
 .value-video-bg {
   position: absolute;

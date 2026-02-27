@@ -106,7 +106,7 @@ section {
 }
 
 .hero-brand {
-  width: min(80%, 600px);
+  width: min(88%, 720px);
   height: auto;
   display: block;
   margin: 0 auto;
@@ -114,16 +114,17 @@ section {
 
 .hero-claim {
   font-family: "Qurova", sans-serif;
-  font-size: clamp(1.4rem, 4vw, 2.8rem);
+  font-size: clamp(1rem, 3vw, 1.9rem);
   font-weight: 600;
   color: var(--color-primary);
-  margin: var(--space-3) 0 var(--space-5);
+  margin: var(--space-3) 0 var(--space-4);
   letter-spacing: -0.01em;
 }
 
 .hero-tagline {
-  font-style: italic;
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-style: normal;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
   color: rgba(255, 255, 255, 0.72);
   margin: 0 0 var(--space-6);
 }
@@ -812,7 +813,7 @@ body.cursor-black #cursor-ring { border-color: rgba(0, 0, 0, 0.45); }
 
   /* ── Hero ── */
   #hero { min-height: 100svh; }
-  .hero-brand { width: min(72%, 300px); }
+  .hero-brand { width: min(85%, 420px); }
 
   /* ── Value cards ── */
   .value-card { padding: var(--space-4) var(--space-3); }

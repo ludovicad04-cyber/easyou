@@ -190,9 +190,17 @@ h1 {
 }
 
 #value {
-  background: url("brand identity/background.png") center/cover no-repeat;
+  background: var(--color-surface);
   color: var(--color-cream);
   position: relative;
+}
+#value::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("brand identity/background.png") center/cover no-repeat;
+  opacity: 0.22;
+  z-index: 0;
 }
 #value > * { position: relative; z-index: 1; }
 

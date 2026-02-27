@@ -576,12 +576,10 @@ h1 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Phone column — left side, clips the oversized phone */
+/* Phone column — left side, clips the oversized SVG canvas */
 .steps-sticky-phone {
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   background: #0d0d0d;
 }
 
@@ -656,8 +654,15 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen {
-  /* position: absolute; inset: 0 from base .phone-screen class → fills the phone-mockup */
+  /*
+   * Base class provides position:absolute; inset:0 so each screen fills the column.
+   * display:flex + centering aligns the SVG within the absolute screen.
+   */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
+  overflow: hidden;
 }
 
 .steps-sticky-phone .phone-screen--active {
@@ -665,10 +670,15 @@ h1 {
 }
 
 .steps-sticky-phone .phone-screen img {
-  /* km4.svg is 375×812 portrait — matches the phone screen perfectly */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /*
+   * Schermo SVGs are 1440×810 landscape; the phone sits centered and occupies
+   * 667/810 = 82.3% of SVG height. height:122% scales the canvas so the phone
+   * fills 100% of the column height. Centered horizontally (phone is at x=50%).
+   * Left/right canvas margins are clipped by overflow:hidden on the column.
+   */
+  height: 122%;
+  width: auto;
+  flex-shrink: 0;
   display: block;
 }
 

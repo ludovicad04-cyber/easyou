@@ -576,11 +576,12 @@ h1 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Phone column — left side, clips the oversized SVG canvas */
+/* Phone column — left side */
 .steps-sticky-phone {
   overflow: hidden;
-  position: relative;
+  display: grid;            /* inner grid for CSS stacking of phone screens */
   background: #0d0d0d;
+  padding-top: 4rem;        /* compensate for fixed nav bar so phone centers in visible area */
 }
 
 /* ── Phone mockup ── */
@@ -655,9 +656,13 @@ h1 {
 
 .steps-sticky-phone .phone-screen {
   /*
-   * Base class provides position:absolute; inset:0 so each screen fills the column.
-   * display:flex + centering aligns the SVG within the absolute screen.
+   * CSS grid stacking: all screens share grid-area 1/1.
+   * Override position:absolute + inset:0 from base class so padding on the
+   * column container is respected and the phone centers in the visible area.
    */
+  grid-area: 1 / 1;
+  position: relative;
+  inset: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -671,10 +676,10 @@ h1 {
 
 .steps-sticky-phone .phone-screen img {
   /*
-   * Schermo SVGs are 1440×810 landscape; the phone sits centered and occupies
-   * 667/810 = 82.3% of SVG height. height:122% scales the canvas so the phone
-   * fills 100% of the column height. Centered horizontally (phone is at x=50%).
-   * Left/right canvas margins are clipped by overflow:hidden on the column.
+   * height:100% fills the grid cell (100vh - 4rem nav padding).
+   * The SVG phone occupies 82.3% of SVG height so it's fully visible
+   * with natural top/bottom breathing room. Horizontally centered by flex
+   * (phone is at x=50% of SVG canvas). Left/right canvas clipped by overflow.
    */
   height: 100%;
   width: auto;

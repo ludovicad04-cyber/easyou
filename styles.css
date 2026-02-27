@@ -715,7 +715,7 @@ h1 {
   font-weight: 400;
 }
 
-.etf-left h2 {
+.etf-title {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 400;
   margin: 0 0 var(--space-7);

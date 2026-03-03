@@ -115,7 +115,7 @@ section {
 
 .hero-claim {
   font-family: "Qurova", sans-serif;
-  font-size: clamp(1rem, 3vw, 1.9rem);
+  font-size: clamp(1.4rem, 4vw, 2.8rem);
   font-weight: 600;
   color: var(--color-primary);
   margin: var(--space-3) 0 var(--space-4);
@@ -482,7 +482,7 @@ h1 {
 #how h2,
 #how h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 /* Sticky content: always fills the viewport while the pin container scrolls */
@@ -717,13 +717,14 @@ h1 {
 
 .etf-title {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0 0 var(--space-7);
 }
 
 .etf-left p {
   margin: 0 0 var(--space-7);
   font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  font-weight: 600;
   line-height: 1.65;
 }
 
